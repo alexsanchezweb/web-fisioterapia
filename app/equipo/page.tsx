@@ -40,10 +40,11 @@ const team = [
   },
 ];
 
+import config from "../../config.js";
+
 export const metadata = {
-  title: "Nuestro Equipo | FisioElite Madrid",
-  description:
-    "Conoce a los fisioterapeutas colegiados de FisioElite Madrid: especialistas en fisioterapia deportiva, osteopatía, neurológica y suelo pélvico.",
+  title: `Nuestro Equipo | ${config.clinicName} ${config.clinicCity}`,
+  description: `Conoce a los fisioterapeutas colegiados de ${config.clinicName} ${config.clinicCity}: especialistas en fisioterapia deportiva, osteopatía, neurológica y suelo pélvico.`,
 };
 
 export default function EquipoPage() {
@@ -81,10 +82,10 @@ export default function EquipoPage() {
 
                 {/* Info */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h2 className="text-base font-semibold text-[#1a3a5c] leading-snug mb-1">
+                  <h2 className="text-base font-semibold text-[var(--color-primary)] leading-snug mb-1">
                     {member.name}
                   </h2>
-                  <p className="text-xs font-semibold text-[#2d6a4f] uppercase tracking-wide mb-3">
+                  <p className="text-xs font-semibold text-[var(--color-secondary)] uppercase tracking-wide mb-3">
                     {member.specialty}
                   </p>
                   <p className="text-gray-500 text-xs leading-relaxed font-light flex-1 mb-4">
@@ -102,7 +103,7 @@ export default function EquipoPage() {
 
           {/* CTA */}
           <div className="mt-14 text-center p-10 rounded-2xl bg-white border border-gray-100 shadow-sm">
-            <h3 className="text-2xl font-bold text-[#1a3a5c] mb-3">
+            <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3">
               ¿No sabe con quién empezar?
             </h3>
             <p className="text-gray-500 font-light mb-6">
@@ -110,7 +111,7 @@ export default function EquipoPage() {
             </p>
             <a
               href="/contacto"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#2d6a4f] hover:bg-[#245a42] text-white font-semibold text-sm rounded-lg transition-colors duration-200 shadow-sm"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold text-sm rounded-lg transition-colors duration-200 shadow-sm"
             >
               Contactar con la clínica
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

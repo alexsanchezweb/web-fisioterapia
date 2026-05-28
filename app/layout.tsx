@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsApp from "./components/WhatsApp";
+import config from "../config.js";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -11,9 +12,8 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "FisioElite Madrid | Clínica de Fisioterapia Premium",
-  description:
-    "Clínica de fisioterapia premium en Madrid. Tratamientos personalizados con tecnología de última generación. Más de 2.000 pacientes recuperados.",
+  title: `${config.clinicName} ${config.clinicCity} | ${config.tagline}`,
+  description: config.description,
 };
 
 export default function RootLayout({
@@ -21,6 +21,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${geist.variable} h-full`}>
+      <head>
+        <style>{`
+          :root {
+            --color-primary: ${config.colorPrimary};
+            --color-primary-dark: ${config.colorPrimaryDark};
+            --color-primary-light: ${config.colorPrimaryLight};
+            --color-secondary: ${config.colorSecondary};
+            --color-secondary-dark: ${config.colorSecondaryDark};
+            --color-secondary-light: ${config.colorSecondaryLight};
+            --color-secondary-border: ${config.colorSecondaryBorder};
+            --color-secondary-accent: ${config.colorSecondaryAccent};
+          }
+        `}</style>
+      </head>
       <body className="min-h-full antialiased bg-white text-gray-800">
         <Navbar />
         <main className="overflow-x-hidden">{children}</main>

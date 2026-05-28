@@ -1,7 +1,13 @@
+import config from "../../config.js";
+
 export default function WhatsApp() {
+  const waText = encodeURIComponent(
+    `Hola, me gustaría reservar una consulta en ${config.clinicName}`
+  );
+
   return (
     <a
-      href="https://wa.me/34910000000?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20consulta%20en%20FisioElite"
+      href={`https://wa.me/${config.whatsappNumber}?text=${waText}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
@@ -19,7 +25,7 @@ export default function WhatsApp() {
         </div>
 
         {/* Tooltip */}
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-[#1a3a5c] text-white text-xs font-medium px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg">
+        <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-[var(--color-primary)] text-white text-xs font-medium px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg">
           ¿Hablamos por WhatsApp?
         </div>
       </div>

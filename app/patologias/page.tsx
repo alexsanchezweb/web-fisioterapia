@@ -63,10 +63,11 @@ const categories = [
   },
 ];
 
+import config from "../../config.js";
+
 export const metadata = {
-  title: "Patologías Tratadas | FisioElite Madrid",
-  description:
-    "Lesiones deportivas, problemas de espalda, fisioterapia neurológica, reumatología y suelo pélvico. Tratamos más de 50 patologías en nuestra clínica de Madrid.",
+  title: `Patologías Tratadas | ${config.clinicName} ${config.clinicCity}`,
+  description: `Lesiones deportivas, problemas de espalda, fisioterapia neurológica, reumatología y suelo pélvico. Tratamos más de 50 patologías en nuestra clínica de ${config.clinicCity}.`,
 };
 
 export default function PatologiasPage() {
@@ -77,7 +78,7 @@ export default function PatologiasPage() {
         title={
           <>
             ¿Qué podemos{" "}
-            <span className="text-[#2d6a4f]">tratarte?</span>
+            <span className="text-[var(--color-secondary)]">tratarte?</span>
           </>
         }
         subtitle="Abordamos más de 50 patologías con protocolos clínicos personalizados. Si no encuentras tu dolencia, consúltanos — seguro podemos ayudarte."
@@ -91,14 +92,14 @@ export default function PatologiasPage() {
                 key={cat.title}
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8"
               >
-                <h2 className="text-lg font-bold text-[#1a3a5c] mb-2">{cat.title}</h2>
+                <h2 className="text-lg font-bold text-[var(--color-primary)] mb-2">{cat.title}</h2>
                 <p className="text-gray-400 text-sm font-light mb-5 leading-relaxed">
                   {cat.description}
                 </p>
                 <ul className="space-y-2.5">
                   {cat.conditions.map((c) => (
                     <li key={c} className="flex items-start gap-2.5 text-sm">
-                      <svg className="w-4 h-4 text-[#2d6a4f] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[var(--color-secondary)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-gray-600 font-light">{c}</span>
@@ -109,14 +110,14 @@ export default function PatologiasPage() {
             ))}
           </div>
 
-          <div className="mt-10 bg-[#1a3a5c] rounded-2xl p-10 text-center">
+          <div className="mt-10 bg-[var(--color-primary)] rounded-2xl p-10 text-center">
             <h3 className="text-2xl font-bold text-white mb-3">¿No encuentras tu patología?</h3>
             <p className="text-white/60 text-sm font-light mb-6 max-w-lg mx-auto">
               Contáctanos y uno de nuestros fisioterapeutas te orientará sobre el tratamiento más adecuado para tu caso.
             </p>
             <a
               href="/contacto"
-              className="inline-flex items-center px-7 py-3.5 bg-[#2d6a4f] hover:bg-[#245a42] text-white font-semibold text-sm rounded-lg transition-colors duration-200 shadow-sm"
+              className="inline-flex items-center px-7 py-3.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold text-sm rounded-lg transition-colors duration-200 shadow-sm"
             >
               Consultar mi caso →
             </a>

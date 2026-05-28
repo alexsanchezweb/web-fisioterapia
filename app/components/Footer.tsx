@@ -1,4 +1,5 @@
 import Link from "next/link";
+import config from "../../config.js";
 
 const pages = [
   { label: "Inicio", href: "/" },
@@ -11,7 +12,7 @@ const pages = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a3a5c] py-14">
+    <footer className="bg-[var(--color-primary)] py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
@@ -23,14 +24,14 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="font-bold text-lg tracking-tight text-white">
-                Fisio<span className="text-[#7ecfc0]">Elite</span>
+                {config.logoPart1}<span className="text-[var(--color-secondary-accent)]">{config.logoPart2}</span>
               </span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed max-w-xs mb-5 font-light">
-              Clínica de fisioterapia premium en Madrid. Recuperamos su bienestar con rigor clínico, tecnología avanzada y atención personalizada.
+              {config.tagline} en {config.clinicCity}. Recuperamos su bienestar con rigor clínico, tecnología avanzada y atención personalizada.
             </p>
             <p className="text-white/30 text-xs font-light">
-              Nº Sanitario: B-12345-MA · Colegio de Fisioterapeutas de Madrid
+              Nº Sanitario: {config.registroSanitario} · {config.colegio}
             </p>
           </div>
 
@@ -61,23 +62,23 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span className="text-white/50 text-sm font-light leading-relaxed">
-                  C/ Serrano 45, 2ª planta<br />28001 Madrid
+                  {config.addressStreet}<br />{config.addressCity}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:+34910000000" className="text-white/50 hover:text-white text-sm font-light transition-colors duration-200">
-                  +34 91 000 00 00
+                <a href={config.phoneHref} className="text-white/50 hover:text-white text-sm font-light transition-colors duration-200">
+                  {config.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:hola@fisioelite.es" className="text-white/50 hover:text-white text-sm font-light transition-colors duration-200">
-                  hola@fisioelite.es
+                <a href={`mailto:${config.email}`} className="text-white/50 hover:text-white text-sm font-light transition-colors duration-200">
+                  {config.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -85,7 +86,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span className="text-white/50 text-sm font-light leading-relaxed">
-                  L–V: 8:00–20:00<br />Sábados: 9:00–14:00
+                  {config.scheduleWeekdays}<br />{config.scheduleSaturday}
                 </span>
               </li>
             </ul>
@@ -93,7 +94,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30 font-light">
-          <p>© 2025 FisioElite Madrid. Todos los derechos reservados.</p>
+          <p>© {config.foundingYear} {config.clinicName} {config.clinicCity}. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white/60 transition-colors">Política de privacidad</a>
             <a href="#" className="hover:text-white/60 transition-colors">Aviso legal</a>

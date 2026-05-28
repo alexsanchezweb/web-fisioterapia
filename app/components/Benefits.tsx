@@ -36,12 +36,12 @@ export default function Benefits() {
     <section id="beneficios" className="py-24 bg-[#f8f9fa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold text-[#2d6a4f] bg-[#f0f7f4] border border-[#c3e0d6] rounded-full mb-5 uppercase tracking-widest">
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold text-[var(--color-secondary)] bg-[var(--color-secondary-light)] border border-[var(--color-secondary-border)] rounded-full mb-5 uppercase tracking-widest">
             Por qué elegirnos
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#1a3a5c] mb-5 leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold text-[var(--color-primary)] mb-5 leading-tight">
             Atención médica de primer nivel.<br />
-            <span className="text-[#2d6a4f]">Resultados que se sienten.</span>
+            <span className="text-[var(--color-secondary)]">Resultados que se sienten.</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed font-light">
             Combinamos ciencia, tecnología y experiencia para devolverte la vida que mereces.
@@ -52,15 +52,15 @@ export default function Benefits() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-[#2d6a4f]/20"
+              className="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-[var(--color-secondary)]/20"
             >
-              <div className="w-13 h-13 w-14 h-14 rounded-xl bg-[#f0f7f4] text-[#2d6a4f] flex items-center justify-center mb-6">
+              <div className="w-13 h-13 w-14 h-14 rounded-xl bg-[var(--color-secondary-light)] text-[var(--color-secondary)] flex items-center justify-center mb-6">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-semibold text-[#1a3a5c] mb-3 leading-snug">{item.title}</h3>
+              <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-3 leading-snug">{item.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 font-light">{item.desc}</p>
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#2d6a4f] uppercase tracking-wide">
-                <span className="w-4 h-px bg-[#2d6a4f]" />
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-secondary)] uppercase tracking-wide">
+                <span className="w-4 h-px bg-[var(--color-secondary)]" />
                 {item.tag}
               </div>
             </div>

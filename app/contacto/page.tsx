@@ -1,10 +1,10 @@
 import Contact from "../components/Contact";
 import PageHeader from "../components/PageHeader";
+import config from "../../config.js";
 
 export const metadata = {
-  title: "Contacto y Cita | FisioElite Madrid",
-  description:
-    "Reserva tu cita en FisioElite Madrid. Formulario de contacto, teléfono y dirección de la clínica. C/ Serrano 45, Madrid.",
+  title: `Contacto y Cita | ${config.clinicName} ${config.clinicCity}`,
+  description: `Reserva tu cita en ${config.clinicName} ${config.clinicCity}. Formulario de contacto, teléfono y dirección de la clínica. ${config.addressStreet}, ${config.clinicCity}.`,
 };
 
 export default function ContactoPage() {

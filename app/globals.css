@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #212529;
+
+  /* Colores de marca — sobreescritos en layout.tsx con los valores de config.js */
+  --color-primary: #1a3a5c;
+  --color-primary-dark: #142d48;
+  --color-primary-light: #f0f4f8;
+  --color-secondary: #2d6a4f;
+  --color-secondary-dark: #245a42;
+  --color-secondary-light: #f0f7f4;
+  --color-secondary-border: #c3e0d6;
+  --color-secondary-accent: #7ecfc0;
 }
 
 @theme inline {

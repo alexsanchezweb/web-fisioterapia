@@ -46,10 +46,11 @@ const techniques = [
   },
 ];
 
+import config from "../../config.js";
+
 export const metadata = {
-  title: "Técnicas Terapéuticas | FisioElite Madrid",
-  description:
-    "Fisioterapia manual, osteopatía, punción seca, electroterapia, pilates terapéutico y vendaje neuromuscular. Tratamientos especializados en Madrid.",
+  title: `Técnicas Terapéuticas | ${config.clinicName} ${config.clinicCity}`,
+  description: `Fisioterapia manual, osteopatía, punción seca, electroterapia, pilates terapéutico y vendaje neuromuscular. Tratamientos especializados en ${config.clinicCity}.`,
 };
 
 export default function TecnicasPage() {
@@ -87,7 +88,7 @@ export default function TecnicasPage() {
 
                 {/* Contenido */}
                 <div className="p-7 flex flex-col flex-1">
-                  <h2 className="text-lg font-semibold text-[#1a3a5c] mb-3 leading-snug">
+                  <h2 className="text-lg font-semibold text-[var(--color-primary)] mb-3 leading-snug">
                     {t.title}
                   </h2>
                   <p className="text-gray-500 text-sm leading-relaxed font-light flex-1">

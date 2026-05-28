@@ -1,10 +1,11 @@
 import Pricing from "../components/Pricing";
 import PageHeader from "../components/PageHeader";
 
+import config from "../../config.js";
+
 export const metadata = {
-  title: "Precios y Planes | FisioElite Madrid",
-  description:
-    "Consulta los planes y tarifas de fisioterapia de FisioElite Madrid. Sesión individual, bono de 5 sesiones y plan mensual con precio transparente.",
+  title: `Precios y Planes | ${config.clinicName} ${config.clinicCity}`,
+  description: `Consulta los planes y tarifas de fisioterapia de ${config.clinicName} ${config.clinicCity}. Sesión individual, bono de 5 sesiones y plan mensual con precio transparente.`,
 };
 
 export default function PreciosPage() {
