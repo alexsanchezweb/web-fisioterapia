@@ -45,13 +45,45 @@ interface ContactProps {
   hideHeader?: boolean;
 }
 
+const SHEETS_URL =
+  "https://script.google.com/macros/s/AKfycbzCtz0NQzG_wwE3bJP7KGaqOgjBC5H8kW1D_ViL1VwptqEwni-CVFOcvHARYKqs9EnRFQ/exec";
+
 export default function Contact({ hideHeader = false }: ContactProps) {
   const [form, setForm] = useState({ nombre: "", telefono: "", email: "", mensaje: "" });
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setError(null);
+    setLoading(true);
+
+    try {
+      console.log("Enviando formulario a Google Sheets:", form);
+
+      await fetch(SHEETS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: form.nombre,
+          email: form.email,
+          telefono: form.telefono,
+          mensaje: form.mensaje,
+        }),
+      });
+
+      // Con no-cors la respuesta es opaca — si el fetch no lanza excepción los datos llegaron
+      console.log("Formulario enviado correctamente a Google Sheets");
+      setSent(true);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.error("Error al enviar el formulario:", err);
+      setError("No se pudo enviar el mensaje. Por favor, inténtelo de nuevo o contáctenos por teléfono.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -140,11 +172,18 @@ export default function Contact({ hideHeader = false }: ContactProps) {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#2d6a4f] hover:bg-[#245a42] text-white font-semibold text-sm rounded-lg transition-all duration-200 shadow-sm hover:shadow-md tracking-wide"
+                  disabled={loading}
+                  className="w-full py-4 bg-[#2d6a4f] hover:bg-[#245a42] disabled:bg-[#2d6a4f]/60 disabled:cursor-not-allowed text-white font-semibold text-sm rounded-lg transition-all duration-200 shadow-sm hover:shadow-md tracking-wide"
                 >
-                  Enviar solicitud de cita →
+                  {loading ? "Enviando..." : "Enviar solicitud de cita →"}
                 </button>
 
                 <p className="text-gray-400 text-xs text-center font-light">
